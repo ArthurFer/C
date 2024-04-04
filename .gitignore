@@ -7,3 +7,8 @@ PesquisaBinaria.exe
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/settings.json
+.vscode/tasks.json
+build/Debug/Contains_Duplicates_Array.o
+build/Debug/outDebug.exe
+Find_Max_Array.exe
+Contains_Duplicates_Array.exe
