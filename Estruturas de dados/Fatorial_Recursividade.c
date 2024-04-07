@@ -14,8 +14,8 @@ int main(){
 
     for (int i = 0; i < n; i++){
         int result = fatorial(i);
-        int controle = i +1;
-        printf("Fatorial de %d! = %d x %d = %d\n", i +1, i+1, result, controle * result);        
+        int controle = i + 1;
+        printf("Fatorial de %d! = %d x %d = %d\n", controle, controle, result, controle * result);        
         }
         
     return 0;
