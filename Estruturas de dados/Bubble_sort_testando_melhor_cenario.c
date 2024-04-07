@@ -1,26 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h> 
+#include <time.h>
 
-#define TAM 10000 
-
-int bubbleSort(int array[])
-{
-    int aux, i, j;
-    for (j = 1; j <= TAM; j++)
-        for (i = 0; i < TAM - 1; i++)
-            if (array[i] > array[i + 1])
-            {
-                aux = array[i]; 
-                array[i] = array[i + 1];
-                array[i + 1] = aux;
-            }
-}
+#define TAM 10000
 
 int main()
 {
     int array[TAM];
-    int i;
+    int n, aux, i, troca;
     clock_t t;
 
     srand(time(NULL));
@@ -28,25 +15,46 @@ int main()
     {
         array[i] = rand() % TAM;
     }
+
+    n = 1;
+    troca = 1;
+
     printf("20 array desordenados dentre os 10 mil de teste: \n");
-    for (int i = 0; i < 20; i++){
+    for (int i = 0; i < 20; i++)
+    {
         printf("%d ", array[i]);
     }
 
     printf("\n\n");
 
-    t = clock(); 
-    bubbleSort(array);
+    t = clock(); // armazena tempo
 
-    t = clock() - t; 
-    
+    while (n <= TAM && troca == 1)
+    {
+        troca = 0;
+        for (i = 0; i < TAM; i++)
+        {
+            if (array[i] > array[i + 1])
+            {
+                aux = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = aux;
+                troca = 1;
+            }
+        }
+        n++;
+    }
+
+    t = clock() - t;
+
     printf("20 array ordenados dentre os 10 mil de teste: \n");
-    for (int i = 0; i < 20; i++){
+    for (int i = 0; i < 20; i++)
+    {
         printf("%d ", array[i]);
     }
-    
+
     printf("\n\n");
-    
+
     printf("Tempo de execucao após ordenação dos 10 mil valores: %.2lf milisegundos", ((double)t) / ((CLOCKS_PER_SEC / 1000)));
     return 0;
 }
